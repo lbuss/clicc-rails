@@ -18,10 +18,7 @@ property = Property.create(
 )
 
 result = Result.create(
-)
-
-Chemicalproperty.create(
   chemical: chemical,
   property: property,
-  result: result
+  value: 5
 )

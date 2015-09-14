@@ -1,5 +1,14 @@
 class Result < ActiveRecord::Base
-  has_one :chemicalproperties
-  has_one :chemical, through: :chemicalproperties
-  has_one :property, through: :chemicalproperties
+  belongs_to :chemical
+  belongs_to :property
+
+  def self.create_with_property(chemical, res)
+    @property = Property.find_or_create_by(name: res['property']) do |chem|
+      #update chems properties
+    end
+    @result = Result.new(property: @property, chemical: chemical, value: res['result'])
+    @result.save()
+
+    return @result
+  end
 end

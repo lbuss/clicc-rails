@@ -18,4 +18,6 @@
 //= require components
 //= require flux
 //= require eventemitter
+//= require d3.min
 //= require_tree .
+//= require_tree ./components

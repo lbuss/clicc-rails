@@ -17,21 +17,9 @@ ActiveRecord::Schema.define(version: 20150820183642) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "chemicalproperties", force: :cascade do |t|
-    t.integer  "chemical_id"
-    t.integer  "property_id"
-    t.integer  "result_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "chemicalproperties", ["chemical_id"], name: "index_chemicalproperties_on_chemical_id", using: :btree
-  add_index "chemicalproperties", ["property_id"], name: "index_chemicalproperties_on_property_id", using: :btree
-  add_index "chemicalproperties", ["result_id"], name: "index_chemicalproperties_on_result_id", using: :btree
-
   create_table "chemicals", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "casrn",      null: false
+    t.string   "name"
+    t.string   "casrn"
     t.string   "smiles",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,14 +31,21 @@ ActiveRecord::Schema.define(version: 20150820183642) do
 
   create_table "properties", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "endpoint",   null: false
+    t.string   "endpoint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "chemical_id"
+    t.integer  "property_id"
+    t.string   "units"
+    t.string   "value",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "results", ["chemical_id"], name: "index_results_on_chemical_id", using: :btree
+  add_index "results", ["property_id"], name: "index_results_on_property_id", using: :btree
 
 end

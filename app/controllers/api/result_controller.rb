@@ -6,11 +6,12 @@ class Api::ResultController < ApplicationController
 
   def show
 
-    @chemical = Chemical.find_by( )
+    # @chemical = Chemical.find_by( )
     if @chemical
-      render json: @track
+      render json: @chemical
     else
       render json: {:error => "not-found"}.to_json, :status => 404
+    end
   end
 
   # TODO:filter users from using methods other than index, show

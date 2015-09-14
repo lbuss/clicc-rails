@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+.menu {
+  margin: 10px;
+  display: inline-block;
+  width: 300px;
+  vertical-align:top;
+  overflow: auto;
+}
+
+.display{
+  margin: 10px;
+  display: inline-block;
+  width: 250px;
+  vertical-align:top;
+  overflow: auto;
+}
+
+.graph{
+
+  display: inline-block;
+  width: 500px;
+  vertical-align:top;
+}
+
+.arc {
+	opacity: 1.0;
+}
+.arc-hover {
+	opacity: 0.5;
+}
