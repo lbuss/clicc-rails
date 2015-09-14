@@ -11,7 +11,7 @@
     },
 
     changeInfo: function(property){
-      _info = PROPERTY_INFO[property];
+      _info = property;
       InfoStore.emit(CHANGE_EVENT);
     },
 

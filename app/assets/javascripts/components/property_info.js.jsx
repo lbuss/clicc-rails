@@ -3,6 +3,8 @@ var PropertyInfo = React.createClass({
     return(
       <div className="propertyInfo">
         {this.props.info}
+        <br/><br/>
+        {PROPERTY_INFO[this.props.info]}
       </div>
     )
   }
