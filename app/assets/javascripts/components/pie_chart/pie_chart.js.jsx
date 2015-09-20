@@ -1,4 +1,4 @@
-var ChemGraph = React.createClass({
+var PieChart = React.createClass({
 
   render: function() {
     var data = [];

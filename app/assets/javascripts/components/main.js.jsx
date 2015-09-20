@@ -23,8 +23,9 @@ var Main = React.createClass({
         <div className='display'>
           <Chem chem={this.state.chem}/>
         </div>
-        <div className='graph'>
-          <ChemGraph chem={this.state.chem}/>
+
+        <div>
+          <ComparisonChart chem={this.state.chem}/>
           <PropertyInfo info={this.state.info}/>
         </div>
       </div>

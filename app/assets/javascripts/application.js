@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require d3.min
 //= require components
+//= require_tree ./components
 //= require flux
 //= require eventemitter
-//= require d3.min
 //= require_tree .
-//= require_tree ./components
