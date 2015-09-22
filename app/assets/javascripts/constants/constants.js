@@ -8,3 +8,11 @@ ActionTypes = {
 ChemStatus = {
   NOT_FOUND: "not_found"
 }
+
+TABS = {
+  MAIN: {
+    HOME: 'home',
+
+  },
+  
+}
