@@ -41,6 +41,9 @@
     },
 
     removeLocal: function(chem){
+      if(ChemStore.isCurrent(chem)){
+        _chem = null;
+      }
       delete _chems[chem['smiles']];
       ChemStore.emit(CHANGE_EVENT);
     },
