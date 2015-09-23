@@ -7,19 +7,19 @@ var MainNav = React.createClass({
           <div id="main-nav-center">
             <h1 id="main-nav-brand">CLiCC</h1>
             <ul id="main-nav-list">
-              <li className="main-nav-el">
+              <li>
                 <button onClick={this.changeTab}
                   className="btn-main-nav"
                   value="home">
                     Home
                 </button>
               </li>
-              <li className="spacer main-nav-el">-</li>
-              <li className="main-nav-el"><button onClick={this.changeTab}
+              <li className="spacer">-</li>
+              <li><button onClick={this.changeTab}
                 className="btn-main-nav"
                 value="submit">Submit</button></li>
-              <li className="spacer main-nav-el">-</li>
-              <li className="main-nav-el"><button onClick={this.changeTab}
+              <li className="spacer">-</li>
+              <li><button onClick={this.changeTab}
                 className="btn-main-nav"
                 value="result">Result</button></li>
             </ul>

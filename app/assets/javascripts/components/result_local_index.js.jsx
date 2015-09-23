@@ -10,9 +10,8 @@ var ResultLocalIndex = React.createClass({
     }.bind(this))
 
     return(
-      <ul>
-        Local Results:
-        <br/>
+      <ul id='result-local-index' className='result-block'>
+        <li>Local Results:</li>
         {view}
       </ul>
     )

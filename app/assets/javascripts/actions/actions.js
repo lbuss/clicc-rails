@@ -6,7 +6,7 @@ Actions = {
     });
   },
 
-  removeLocalChem: function(chem){
+  removeLocal: function(chem){
     AppDispatcher.dispatch({
       actionType: ActionTypes.REMOVE_LOCAL,
       chem: chem

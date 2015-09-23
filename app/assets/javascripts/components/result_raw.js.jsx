@@ -1,4 +1,4 @@
-var Chem = React.createClass({
+var ResultRaw = React.createClass({
 
   render: function() {
     var result;
@@ -29,7 +29,7 @@ var Chem = React.createClass({
     }
 
     return(
-      <div id="chem">
+      <div id="result-raw">
         {view}
       </div>
     )

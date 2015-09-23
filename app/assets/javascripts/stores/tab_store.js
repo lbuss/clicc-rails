@@ -2,6 +2,7 @@
 
   var _tabs = {
     main: 'home',
+    result: 'vis',
   };
 
   var CHANGE_EVENT = 'tab_change';
