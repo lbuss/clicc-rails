@@ -31,7 +31,8 @@ var Main = React.createClass({
       case 'result':
         tab = <Result chem={this.state.chem}
                       localIndex={this.state.localIndex}
-                      tabs={this.state.tabs}/>
+                      tabs={this.state.tabs}
+                      info={this.state.info}/>
         break;
     }
 

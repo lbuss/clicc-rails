@@ -15,6 +15,11 @@
       InfoStore.emit(CHANGE_EVENT);
     },
 
+    clearInfo: function(property){
+      _info='';
+      InfoStore.emit(CHANGE_EVENT);
+    },
+
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
     },

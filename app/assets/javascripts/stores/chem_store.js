@@ -43,6 +43,7 @@
     removeLocal: function(chem){
       if(ChemStore.isCurrent(chem['smiles'])){
         _chem = null;
+        InfoStore.clearInfo();
       }
       delete _chems[chem['smiles']];
       ChemStore.emit(CHANGE_EVENT);

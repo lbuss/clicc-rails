@@ -7,7 +7,7 @@ var Result = React.createClass({
         tab = <ResultRaw chem={this.props.chem}/>
         break;
       case 'vis':
-        tab = <PieChart chem={this.props.chem}/>;
+        tab = <Vis chem={this.props.chem} info={this.props.info}/>;
         break;
     }
     return(
