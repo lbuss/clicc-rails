@@ -7,16 +7,22 @@ var ChemIndexShow = React.createClass({
 
   render: function() {
     var chem = this.props.chem
+    var local = ChemStore.isLocal(chem['smiles']);
+    var buttonText = local?'Purge':'Load';
     return(
       <div>
-        {chem.smiles}<button onClick={this.submitChem}>Load</button>
+        {chem.smiles}<button onClick={this.chemAction}>{buttonText}</button>
       </div>
     )
   },
 
-  submitChem: function(e){
+  chemAction: function(e){
     e.preventDefault();
-    ApiActions.findChem('smiles', this.props.chem.smiles);
+    if(ChemStore.isLocal(this.props.chem['smiles'])){
+      Actions.removeLocal(this.props.chem);
+    }else{
+      ApiActions.findChem('smiles', this.props.chem.smiles);
+    }
   }
 
 });

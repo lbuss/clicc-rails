@@ -1,9 +1,11 @@
 var Main = React.createClass({
   getInitialState: function(){
     return{
+      tabs: TabStore.currentTabs(),
       chem: ChemStore.currentChem(),
       index: IndexStore.currentIndex(),
       info: InfoStore.currentInfo(),
+      localIndex: ChemStore.currentLocals(),
     }
   },
 
@@ -11,22 +13,33 @@ var Main = React.createClass({
     ChemStore.addChangeListener(this.update);
     IndexStore.addChangeListener(this.update);
     InfoStore.addChangeListener(this.update);
+    TabStore.addChangeListener(this.update);
   },
 
   render: function(){
-    return (
-      <div id="main">
-        <div className='menu'>
+    var tab;
+    switch(this.state.tabs['main']){
+      case 'home':
+        tab = <Home tabs={this.state.tabs}/>
+        break;
+      case 'submit':
+        tab = <div>
           <ChemLoader/>
-          <ChemIndex index={this.state.index}/>
+          <ChemIndex index={this.state.index} tabs={this.state.tabs}/>
         </div>
-        <div className='display'>
-          <Chem chem={this.state.chem}/>
-        </div>
+        break;
+      case 'result':
+        tab = <Result chem={this.state.chem}
+                      localIndex={this.state.localIndex}
+                      tabs={this.state.tabs}/>
+        break;
+    }
 
-        <div>
-          <ComparisonChart chem={this.state.chem}/>
-          <PropertyInfo info={this.state.info}/>
+    return (
+      <div className='main'>
+        <MainNav tabs={this.state.tabs}/>
+        <div id="main-tab-wrapper">
+          {tab}
         </div>
       </div>
     );
@@ -34,9 +47,11 @@ var Main = React.createClass({
 
   update: function(){
     this.setState({
+      tabs: TabStore.currentTabs(),
       chem: ChemStore.currentChem(),
       index: IndexStore.currentIndex(),
       info: InfoStore.currentInfo(),
+      localIndex: ChemStore.currentLocals(),
     })
   },
 });

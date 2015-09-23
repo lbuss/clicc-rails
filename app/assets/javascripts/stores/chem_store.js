@@ -1,6 +1,7 @@
 (function(root){
 
   var _chem = null;
+  var _chems = {};
 
   var CHANGE_EVENT = 'chem_change';
 
@@ -10,8 +11,37 @@
       return _chem;
     },
 
+    currentLocals: function(){
+      return _chems;
+    },
+
+    isLocal: function(smiles){
+      if(_chems[smiles]){
+        return true;
+      }
+      return false;
+    },
+
+    isCurrent: function(smiles){
+      if (_chem && (_chem['smiles'] === smiles)){
+        return true;
+      }else{
+        return false;
+      }
+    },
+
+    makeCurrent: function(chem){
+      _chem = chem;
+      ChemStore.emit(CHANGE_EVENT);
+    },
+
     newChem: function(chemInfo){
-      _chem = chemInfo;
+      _chems[chemInfo['smiles']] = chemInfo;
+      ChemStore.emit(CHANGE_EVENT);
+    },
+
+    removeLocal: function(chem){
+      delete _chems[chem['smiles']];
       ChemStore.emit(CHANGE_EVENT);
     },
 
@@ -32,6 +62,12 @@
       switch(payload.actionType){
         case ActionTypes.NEW_CHEM:
           ChemStore.newChem(payload.response[0]);
+          break;
+        case ActionTypes.REMOVE_LOCAL:
+          ChemStore.removeLocal(payload.chem)
+          break;
+        case ActionTypes.MAKE_CURRENT:
+          ChemStore.makeCurrent(payload.chem);
           break;
       }
     })
