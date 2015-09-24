@@ -15,7 +15,7 @@
       InfoStore.emit(CHANGE_EVENT);
     },
 
-    clearInfo: function(property){
+    clearInfo: function(){
       _info='';
       InfoStore.emit(CHANGE_EVENT);
     },
