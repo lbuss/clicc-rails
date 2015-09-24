@@ -12,7 +12,6 @@ var ChemLoader = React.createClass({
   render: function() {
     return(
       <form id="chem-form-wrapper" onSubmit={this.submitChem}>
-        <br/>
         Submit Chemical
         <br/>
         <select valueLink={this.linkState('format')}>

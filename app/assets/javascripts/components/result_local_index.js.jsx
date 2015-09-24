@@ -12,6 +12,7 @@ var ResultLocalIndex = React.createClass({
     return(
       <div id='result-local-index'>
         Local Results:
+        <br/>
         <ul className='menu-list'>
           {view}
         </ul>

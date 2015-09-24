@@ -25,7 +25,7 @@ var ResultRaw = React.createClass({
         </div>
       }
     }else{
-      var view = <div>Please enter a Chemical</div>
+      var view = 'Please enter a Chemical';
     }
 
     return(
