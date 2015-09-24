@@ -3,7 +3,7 @@ var ResultRaw = React.createClass({
   render: function() {
     var result;
     var view;
-    curr_chem = this.props.chem
+    curr_chem = this.props.chem;
 
     if(this.props.chem){
       if(curr_chem.results && (curr_chem.results === ChemStatus.NOT_FOUND)){

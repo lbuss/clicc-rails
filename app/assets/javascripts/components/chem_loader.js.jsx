@@ -1,40 +1,25 @@
 var ChemLoader = React.createClass({
 
-  mixins:[React.addons.LinkedStateMixin],
-
-  getInitialState: function(){
-    return{
-      chem: '',
-      format: 'smiles',
-    }
-  },
-
   render: function() {
+    var tab;
+    switch(this.props.tabs['loader']){
+      case 'basic':
+        tab = <ChemBasicEntry index={this.props.index} tabs={this.props.tabs}/>
+        break;
+      case 'advanced':
+        tab = <ChemAdvancedEntry index={this.props.index} tabs={this.props.tabs}/>
+        break;
+      case 'upload':
+        tab = <ChemUpload tabs={this.props.tabs}/>
+        break;
+    }
+
+
     return(
-      <form id="chem-form-wrapper" onSubmit={this.submitChem}>
-        Submit Chemical
-        <br/>
-        <select valueLink={this.linkState('format')}>
-          <option value="name">NAME</option>
-          <option value="smiles">SMILES</option>
-          <option value="casrn">CASRN</option>
-        </select>
-        <br/>
-        <input
-          type="text"
-          id="chem-form-key-input"
-          className="chem-form-text-input"
-          valueLink={this.linkState('chem')}
-        />
-      <br/>
-      <input type="submit" value="Submit"/>
-      </form>
+      <div id='chem-loader-wrapper'>
+        <ChemLoaderNav tabs={this.props.tabs}/>
+        {tab}
+      </div>
     )
   },
-
-  submitChem: function(e){
-    e.preventDefault();
-    ApiActions.findChem(this.state.format, this.state.chem);
-  }
-
 });

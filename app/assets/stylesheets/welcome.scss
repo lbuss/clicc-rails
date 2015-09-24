@@ -21,6 +21,9 @@
   padding: 20px;
 }
 
+#mod-viewer-wrapper{
+  width: 500px;
+}
 #result-local-index{
   display: inline-block;
   width: 218px;
@@ -32,6 +35,10 @@
   outline-width: 1px;
   width:auto;
   height:auto;
+}
+
+#loader-nav{
+  margin-bottom: 20px;
 }
 
 .result-block{

@@ -62,16 +62,18 @@ ns._drawPoints = function(el, chem) {
     return result;
   })
 
-  var max = d3.max(chem.results.map(function(result){
+  var values = chem.results.map(function(result){
     return result.value;
-  }));
+  });
+
+  var max = Math.max.apply(null, values);;
 
   var scale = 400 / max;
 
   var chart = d3.select(".chart")
 
   var x = d3.scale.linear()
-    .domain([0, max])
+    .domain([0, max*scale])
     .range([0, 420]);
 
   var width = 400;

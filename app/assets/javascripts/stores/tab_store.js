@@ -2,6 +2,7 @@
 
   var _tabs = {
     main: 'home',
+    loader: 'basic',
     result: 'vis',
     vis: 'pie'
   };

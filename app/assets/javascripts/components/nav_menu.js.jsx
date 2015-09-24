@@ -6,7 +6,7 @@ var NavMenu = React.createClass({
 
     var buttons = Object.keys(tabNames).map(function(key){
       var classes = "btn-nav " + level;
-      if (this.props.tabs['result'] === key){
+      if (this.props.tabs[this.props.level] === key){
         classes += " active";
       }
       return <li key={key}>

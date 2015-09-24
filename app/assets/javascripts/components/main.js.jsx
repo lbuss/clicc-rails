@@ -23,10 +23,7 @@ var Main = React.createClass({
         tab = <Home tabs={this.state.tabs}/>
         break;
       case 'submit':
-        tab = <div>
-          <ChemLoader/>
-          <ChemIndex index={this.state.index} tabs={this.state.tabs}/>
-        </div>
+        tab = <ChemLoader index={this.state.index} tabs={this.state.tabs}/>
         break;
       case 'result':
         tab = <Result chem={this.state.chem}
