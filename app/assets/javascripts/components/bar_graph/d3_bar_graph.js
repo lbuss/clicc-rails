@@ -62,16 +62,16 @@ ns._drawPoints = function(el, chem) {
     return result;
   })
 
-  // var max_value = d3.max(chems.map(function(chem){
-  //   return d3.max(chem.results.map(function(result){
-  //             return result.value;
-  //           })
-  //         )
-  // }))
+  var max = d3.max(chem.results.map(function(result){
+    return result.value;
+  }));
+
+  var scale = 400 / max;
+
   var chart = d3.select(".chart")
 
   var x = d3.scale.linear()
-    .domain([0, 1000])
+    .domain([0, max])
     .range([0, 420]);
 
   var width = 400;
@@ -104,10 +104,10 @@ ns._drawPoints = function(el, chem) {
       .attr('class', 'd3-point')
       .attr("x", 10)
       .attr("y", function(d, i){ return i * barHeight })
-      .attr("width", function(d) { return d.value })
+      .attr("width", function(d) { return d.value * scale })
       .attr("height", barHeight - 1)
       .on('mouseover', function(d) {
-        Actions.setInfo(d.name);
+        Actions.setInfo(d.property);
       });
   //     .attr('cx', function(d) {
   //       if (prevScales) {

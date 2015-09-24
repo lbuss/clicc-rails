@@ -1,14 +1,17 @@
-var ComparisonChart = React.createClass({
+var BarGraph = React.createClass({
   getDefaultProps: function() {
     return {
-      width: '1000px',
-      height: '600px'
+      width: '500px',
+      height: '100px'
     };
   },
 
   componentDidMount: function() {
     var el = this.getDOMNode();
     ns.create(el, this.props);
+    if(this.props.chem){
+      ns.update(el, this.props.chem);
+    }
     // dispatcher.on('point:mouseover', this.showTooltip);
     // dispatcher.on('point:mouseout', this.hideTooltip);
 

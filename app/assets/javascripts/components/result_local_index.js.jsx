@@ -6,14 +6,16 @@ var ResultLocalIndex = React.createClass({
   render: function() {
     var view = Object.keys(this.props.index).map(function(smiles){
       var chem = this.props.index[smiles];
-      return <li><ResultLocalIndexShow chem={chem}/></li>
+      return <ResultLocalIndexShow chem={chem}/>
     }.bind(this))
 
     return(
-      <ul id='result-local-index' className='result-block'>
-        <li>Local Results:</li>
-        {view}
-      </ul>
+      <div id='result-local-index'>
+        Local Results:
+        <ul className='menu-list'>
+          {view}
+        </ul>
+      </div>
     )
   }
 });

@@ -7,7 +7,9 @@ var Result = React.createClass({
         tab = <ResultRaw chem={this.props.chem}/>
         break;
       case 'vis':
-        tab = <Vis chem={this.props.chem} info={this.props.info}/>;
+        tab = <Vis chem={this.props.chem}
+          info={this.props.info}
+          tabs={this.props.tabs}/>;
         break;
     }
     return(

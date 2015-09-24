@@ -2,37 +2,21 @@
 var MainNav = React.createClass({
 
   render: function(){
+    var tabNames = {
+      home: 'Home',
+      submit: 'Submit',
+      result: 'Result'
+    }
+
+    var level = 'main';
+
     return (
       <div id="main-nav">
           <div id="main-nav-center">
-            <h1 id="main-nav-brand">CLiCC</h1>
-            <ul id="main-nav-list">
-              <li>
-                <button onClick={this.changeTab}
-                  className="btn-main-nav"
-                  value="home">
-                    Home
-                </button>
-              </li>
-              <li className="spacer">-</li>
-              <li><button onClick={this.changeTab}
-                className="btn-main-nav"
-                value="submit">Submit</button></li>
-              <li className="spacer">-</li>
-              <li><button onClick={this.changeTab}
-                className="btn-main-nav"
-                value="result">Result</button></li>
-            </ul>
+            <img alt="Logo" src="/assets/cliccheader.png" /><br/>
+            <NavMenu tabs={this.props.tabs} tabNames={tabNames} level={level}/>
           </div>
       </div>
     );
-  },
-
-
-  changeTab: function(event){
-    Actions.changeTab({
-      level: 'main',
-      tab: event.target.value
-    })
   }
 });

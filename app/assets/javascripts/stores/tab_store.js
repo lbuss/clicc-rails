@@ -3,6 +3,7 @@
   var _tabs = {
     main: 'home',
     result: 'vis',
+    vis: 'pie'
   };
 
   var CHANGE_EVENT = 'tab_change';

@@ -1,0 +1,67 @@
+.btn-nav.light, .nav-pills>li>a.light{
+	color: #808080;
+	-moz-box-shadow: inset 0 0 0 1px #c0c0c0;
+	-webkit-box-shadow: inset 0 0 0 1px #c0c0c0;
+	box-shadow: inset 0 0 0 1px #c0c0c0;
+}
+
+.btn-nav.dark, .nav-pills>li>a.dark{
+	color: #606060;
+	-moz-box-shadow: inset 0 0 0 1px #808080;
+	-webkit-box-shadow: inset 0 0 0 1px #808080;
+	box-shadow: inset 0 0 0 1px #808080;
+}
+
+.nav-pills>li>a:hover{
+	/*text-transform: uppercase;*/
+	border: none;
+	-moz-box-shadow: inset 0 0 0 4px #c0c0c0;
+	-webkit-box-shadow: inset 0 0 0 4px #c0c0c0;
+	box-shadow: inset 0 0 0 4px #c0c0c0;
+	text-decoration: none;
+	background-color: #c0c0c0;
+	/*color: rgb(255, 255, 255);*/
+}
+
+.btn-main-nav:hover{
+	border: none;
+	-moz-box-shadow: inset 0 0 0 4px #79B837;
+	-webkit-box-shadow: inset 0 0 0 4px #79B837;
+	box-shadow: inset 0 0 0 4px #79B837;
+	text-decoration: none;
+	background-color: #79B837 !important;
+	color: rgb(255, 255, 255);
+}
+
+.nav-pills>.spacer{
+	font-weight: 600;
+	margin: 10px;
+	padding-left: 5px;
+}
+
+.btn-main-nav{
+	border-radius: 0px;
+	padding: 12px 20px 12px 20px;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.07rem;
+	border: none;
+	background-color: white;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn-main-nav:focus{
+  outline: none;
+}
+
+.btn-main-nav:hover{
+	border: none;
+	-moz-box-shadow: inset 0 0 0 4px #79B837;
+	-webkit-box-shadow: inset 0 0 0 4px #79B837;
+	box-shadow: inset 0 0 0 4px #79B837;
+	text-decoration: none;
+	background-color: #79B837 !important;
+	color: rgb(255, 255, 255);
+}
