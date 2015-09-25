@@ -4,7 +4,7 @@ var ChemLoaderNav = React.createClass({
     var tabNames = {
       basic: 'Basic',
       advanced: 'Advanced',
-      local: 'Upload'
+      upload: 'Upload'
     }
 
     var level = 'loader';

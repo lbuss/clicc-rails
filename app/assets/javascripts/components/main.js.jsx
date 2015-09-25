@@ -34,7 +34,7 @@ var Main = React.createClass({
     }
 
     return (
-      <div className='main'>
+      <div id='main'>
         <MainNav tabs={this.state.tabs}/>
         <div id="main-tab-wrapper">
           {tab}

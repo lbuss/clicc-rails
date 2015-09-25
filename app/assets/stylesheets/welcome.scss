@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // styles for Main components
+#main{
+  width: 1025px;
+  margin: auto;
+}
+
 #main-nav{
   margin: 0px;
   width: 100%;
@@ -38,8 +43,9 @@
 #result-tab-wrapper{
   outline-style: solid;
   outline-width: 1px;
-  width:auto;
-  height:auto;
+  width: auto;
+  height: auto;
+  padding: 10px;
 }
 
 #loader-nav{
