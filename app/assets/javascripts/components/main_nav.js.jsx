@@ -13,7 +13,7 @@ var MainNav = React.createClass({
     return (
       <div id="main-nav">
           <div id="main-nav-center">
-            <img alt="Logo" src="/assets/cliccheader.png" /><br/>
+            <img id="logo" alt="Logo" src="/assets/cliccheader.png" /><br/>
             <NavMenu tabs={this.props.tabs} tabNames={tabNames} level={level}/>
           </div>
       </div>
