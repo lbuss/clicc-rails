@@ -5,6 +5,8 @@ var Home = React.createClass({
       <div>
         Home page with information. Modules return a single random number. Only accepts unique smiles as input.
         Load chemicals locally with submit tab and view results in result tab.
+        <br/>
+        Add some cool interactive infographics on clicc or about the modules.
       </div>
     )
   },

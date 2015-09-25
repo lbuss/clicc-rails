@@ -29,6 +29,12 @@ var Result = React.createClass({
           {tab}
         </div>
       </div>
+    }else{
+      block = <div className='result-block'>
+        Please either generate new results or load old ones. Manage local data using the 'Submit' tab.
+        <br/><br/>
+        Once data has been loaded, interact by clicking 'view results' in the menu to the left.
+      </div>
     }
 
     return(
