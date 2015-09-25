@@ -11,6 +11,10 @@ var ResultDownload = React.createClass({
     ChemStore.addChangeListener(this.update);
   },
 
+  componentWillUnmount: function(){
+    ChemStore.removeChangeListener(this.update);
+  },
+
   render: function() {
     var data = JSON.stringify(this.props.chem);
     var blob = new Blob([data], {type: "text/text"});

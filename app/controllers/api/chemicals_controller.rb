@@ -24,7 +24,7 @@ class Api::ChemicalsController < ApplicationController
 
   def submit
     # work_server = 'http://localhost:5000/submit'
-    work_server = 'http://lbuss.pythonanywhere.com/submit'
+    work_server = 'http://lbuss.pythonanywhere.com/submit';
     response = Net::HTTP.post_form(URI.parse(work_server), params)
     @results = ActiveSupport::JSON.decode(response.body)
     @chemical = [Chemical.find_or_create_by('smiles': @results['SMILES'])]
