@@ -1,24 +1,37 @@
 var PieChart = React.createClass({
+  propTypes: {
+    width: React.PropTypes.number,
+    height: React.PropTypes.number,
+    data: React.PropTypes.array.isRequired,
+  },
+
+  getDefaultProps: function() {
+    return {
+      width: 300,
+      height: 350,
+      Legend: true,
+    };
+  },
 
   render: function() {
-    var data = [];
-    if(this.props.chem && this.props.chem.results != 'not_found'){
-      data = this.props.chem.results.map(function(res){
-        return {name: res.property, count: parseInt(res.value)}
-      });
-
-
-    }
-
-
-    var colors = ['#FD9827', '#DA3B21', '#3669C9', '#1D9524', '#971497'];
     return (
       <div>
-        <ChemGraphChart width='300' height='300'>
-              <ChemGraphData data={data} colors={colors} width='300' height='300'/>
-        </ChemGraphChart>
-        <ChemGraphLegend data={data} colors={colors} width='200' height='300' />
+        <h4> {this.props.chem.smiles} </h4>
       </div>
     );
+  },
+
+  componentDidMount: function() {
+    var el = React.findDOMNode(this);
+    pc.createChart(el, this.props);
+    pc.update(el, this.props);
+  },
+
+  componentDidUpdate: function() {
+      var el = React.findDOMNode(this);
+      pc.removeContent(el);
+      if(this.props.chem){
+        pc.update(el, this.props);
+      }
   }
 });
