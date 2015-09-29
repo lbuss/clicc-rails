@@ -1,7 +1,7 @@
 var ChemIndexShow = React.createClass({
   getInitialState: function(){
     return{
-
+      retrieving: false,
     }
   },
 
@@ -14,10 +14,10 @@ var ChemIndexShow = React.createClass({
     if (local){
       divClass = 'menu-el-loaded menu-el';
       buttonClass = 'btn-x';
-      buttonText = '\u00D7'
+      buttonText = '\u00D7';
     }else{
       divClass = 'menu-el';
-      buttonText = 'Load'
+      buttonText = this.state.retrieving?'Retrieving':'Load';
     }
 
     return(
@@ -33,9 +33,14 @@ var ChemIndexShow = React.createClass({
     e.preventDefault();
     if(ChemStore.isLocal(this.props.chem['smiles'])){
       Actions.removeLocal(this.props.chem);
+      this.setState({
+        retrieving: false
+      });
     }else{
-      e.target.text='Retrieving';
       ApiActions.findChem('smiles', this.props.chem.smiles);
+      this.setState({
+        retrieving: true
+      });
     }
   }
 
