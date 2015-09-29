@@ -14,7 +14,7 @@ var ChemBasicEntry = React.createClass({
     <div id='chem-basic'>
       <ChemIndex index={this.props.index} tabs={this.props.tabs}/>
       <form className='result-block' id="chem-form-wrapper" onSubmit={this.submitChem}>
-        Submit Chemical. Use local results for now.
+        Submit Chemical. Use stored results for now.
         <br/><br/>
         <select valueLink={this.linkState('format')}>
           <option value="name">NAME</option>
