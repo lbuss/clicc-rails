@@ -2,7 +2,7 @@
 var pc = {};
 
 pc.removeContent = function(el){
-  // d3.select('.d3-points').selectAll('*').remove();
+  // Could be done faster by using d3 .exit() selector in the draw points method.
   d3.select(el).selectAll(".arc").remove();
   d3.select(el).selectAll(".legend").remove();
 }
@@ -27,14 +27,6 @@ pc.createChart = function(dom, props){
 
   var chart = svg.append("g")
       .attr("transform", "translate(" + (props.width/2) + "," + (height/2) + ")");
-  //
-  // svg.append('g')
-  //     .attr('class', 'd3-points');
-  //
-  // svg.append('g')
-  //     .attr('class', 'd3-tooltips');
-
-  // this.update(el, props.chem);
 
   return svg;
 },

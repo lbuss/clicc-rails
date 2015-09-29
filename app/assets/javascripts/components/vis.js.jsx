@@ -8,7 +8,6 @@ var Vis = React.createClass({
           tab = <div>
             <VisNav tabs={this.props.tabs}/>
             <PieChart chem={this.props.chem}/>
-            <PropertyInfo info={this.props.info}/>
           </div>
           break;
         case 'bar':
