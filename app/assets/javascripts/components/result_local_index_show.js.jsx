@@ -3,8 +3,9 @@ var ResultLocalIndexShow = React.createClass({
     var chem = this.props.chem
     var current = ChemStore.isCurrent(chem['smiles']);
     var buttonText = current?'Currently viewing':(<button onClick={this.makeCurrent}>View Results</button>);
+    var liClass = current?'menu-el-loaded menu-el':'menu-el';
     return(
-      <li className='menu-el'>
+      <li className={liClass}>
         {chem.smiles}<br/>
         {buttonText}
       </li>

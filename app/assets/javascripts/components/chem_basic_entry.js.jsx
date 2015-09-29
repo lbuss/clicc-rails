@@ -12,7 +12,8 @@ var ChemBasicEntry = React.createClass({
   render: function() {
     return(
     <div id='chem-basic'>
-      <form id="chem-form-wrapper" onSubmit={this.submitChem}>
+      <ChemIndex index={this.props.index} tabs={this.props.tabs}/>
+      <form className='result-block' id="chem-form-wrapper" onSubmit={this.submitChem}>
         Submit Chemical. All options submit a job with the entered value as 'smiles' currently(the dropdown
           does nothing as I have not implemented a feature to convert name or casrn to a smiles just yet).
           Clicking 'Load' will grab those results from server to local. 'Purge' deletes local content but
@@ -38,7 +39,7 @@ var ChemBasicEntry = React.createClass({
       <br/>
       <input type="submit" value="Submit"/>
       </form>
-      <ChemIndex index={this.props.index} tabs={this.props.tabs}/>
+
     </div>
     )
   },

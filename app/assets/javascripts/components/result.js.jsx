@@ -40,9 +40,7 @@ var Result = React.createClass({
     return(
       <div>
         <ResultLocalIndex index={this.props.localIndex}/>
-
-          {block}
-
+        {block}
       </div>
     )
   },

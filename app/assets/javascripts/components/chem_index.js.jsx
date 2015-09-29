@@ -5,11 +5,11 @@ var ChemIndex = React.createClass({
 
   render: function() {
     var view = this.props.index.map(function(chem){
-      return <li><ChemIndexShow chem={chem}/></li>
+      return <ChemIndexShow chem={chem}/>
     })
 
     return(
-      <ul>
+      <ul className='menu-list result-block'>
         {view}
       </ul>
     )
