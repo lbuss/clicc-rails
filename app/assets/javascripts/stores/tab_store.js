@@ -4,7 +4,8 @@
     main: 'home',
     loader: 'basic',
     result: 'vis',
-    vis: 'pie'
+    vis: 'pie',
+    advanced: 'fat'
   };
 
   var CHANGE_EVENT = 'tab_change';

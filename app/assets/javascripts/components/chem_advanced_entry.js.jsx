@@ -9,28 +9,33 @@ var ChemAdvancedEntry = React.createClass({
     }
   },
 
+  fat: 'Fate & Transport',
+  tox: 'Toxicity',
+  prd: 'Production',
+  rls: 'Release',
+
   render: function() {
+    var tab;
+    switch(this.props.tabs['advanced']){
+      case 'fat':
+        tab = 'custom interface stuff';
+        break;
+      case 'tox':
+        tab = 'custom inputs for whatever';
+        break;
+      case 'prd':
+        tab = 'nonsense words';
+        break;
+      case 'rls':
+        tab = 'jernganjfadnfasldnf';
+        break;
+    }
     return(
     <div id='chem-advanced'>
-      <form id="chem-form-wrapper" onSubmit={this.submitChem}>
-        Submit Chemical, This isn't different from basic entry for now.
-        <br/>
-        <select valueLink={this.linkState('format')}>
-          <option value="name">NAME</option>
-          <option value="smiles">SMILES</option>
-          <option value="casrn">CASRN</option>
-        </select>
-        <br/>
-        <input
-          type="text"
-          id="chem-form-key-input"
-          className="chem-form-text-input"
-          valueLink={this.linkState('chem')}
-        />
-      <br/>
-      <input type="submit" value="Submit"/>
-      </form>
-      <ChemIndex index={this.props.index} tabs={this.props.tabs}/>
+      <ChemAdvEntryNav tabs={this.props.tabs}/>
+      <div className='result-block'>
+        {tab}
+      </div>
     </div>
     )
   },
