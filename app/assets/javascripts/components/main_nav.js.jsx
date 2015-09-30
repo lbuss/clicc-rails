@@ -4,8 +4,8 @@ var MainNav = React.createClass({
   render: function(){
     var tabNames = {
       home: 'Home',
-      submit: 'Submit',
-      result: 'Result'
+      submit: 'Submit Jobs',
+      result: 'Local Results'
     }
 
     var level = 'main';

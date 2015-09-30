@@ -10,6 +10,7 @@ var ChemIndex = React.createClass({
 
     return(
       <ul className='menu-list result-block'>
+        <li>Load from Server:</li>
         {view}
       </ul>
     )
