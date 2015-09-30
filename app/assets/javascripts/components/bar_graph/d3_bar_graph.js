@@ -57,6 +57,7 @@ ns.update = function(el, chem) {
 // };
 
 ns._drawPoints = function(el, chem) {
+  var colors = ['#FD9827', '#DA3B21', '#3669C9', '#1D9524', '#971497'];
   // (el, scales, data, prevScales, dispatcher)
   var data = chem.results.map(function(result){
     return result;
@@ -108,6 +109,7 @@ ns._drawPoints = function(el, chem) {
       .attr("y", function(d, i){ return i * barHeight })
       .attr("width", function(d) { return d.value * scale })
       .attr("height", barHeight - 1)
+      .style("fill", function(d, i) { return colors[i]; })
       .on('mouseover', function(d) {
         Actions.setInfo(d.property);
       });
