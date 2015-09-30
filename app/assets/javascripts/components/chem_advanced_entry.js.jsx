@@ -9,25 +9,68 @@ var ChemAdvancedEntry = React.createClass({
     }
   },
 
-  fat: 'Fate & Transport',
-  tox: 'Toxicity',
-  prd: 'Production',
-  rls: 'Release',
-
   render: function() {
     var tab;
     switch(this.props.tabs['advanced']){
       case 'fat':
-        tab = 'custom interface stuff';
+        tab = <form>
+          <h3>Placeholder form for Fate/Transport</h3>
+          <p>property 1</p>
+          <input type='text'/>
+          <p>property 2</p>
+          <input type='text'/>
+          <p>property 3</p>
+          <select valueLink={this.linkState('format')}>
+            <option value="name">NAME</option>
+            <option value="smiles">SMILES</option>
+            <option value="casrn">CASRN</option>
+          </select>
+        </form>
         break;
       case 'tox':
-        tab = 'custom inputs for whatever';
+        tab = tab = <form>
+          <h3>Placeholder form for Toxicity</h3>
+          <p>property 1</p>
+          <input type='text'/>
+          <p>property 2</p>
+          <input type='text'/>
+          <p>property 3</p>
+          <select valueLink={this.linkState('format')}>
+            <option value="name">NAME</option>
+            <option value="smiles">SMILES</option>
+            <option value="casrn">CASRN</option>
+          </select>
+        </form>
         break;
       case 'prd':
-        tab = 'nonsense words';
+        tab = tab = <form>
+          <h3>Placeholder form for Production</h3>
+          <p>property 1</p>
+          <input type='text'/>
+          <p>property 2</p>
+          <input type='text'/>
+          <p>property 3</p>
+          <select valueLink={this.linkState('format')}>
+            <option value="name">NAME</option>
+            <option value="smiles">SMILES</option>
+            <option value="casrn">CASRN</option>
+          </select>
+        </form>
         break;
       case 'rls':
-        tab = 'jernganjfadnfasldnf';
+        tab = tab = <form>
+          <h3>Placeholder form for Release</h3>
+          <p>property 1</p>
+          <input type='text'/>
+          <p>property 2</p>
+          <input type='text'/>
+          <p>property 3</p>
+          <select valueLink={this.linkState('format')}>
+            <option value="name">NAME</option>
+            <option value="smiles">SMILES</option>
+            <option value="casrn">CASRN</option>
+          </select>
+        </form>
         break;
     }
     return(
