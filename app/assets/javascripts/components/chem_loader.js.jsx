@@ -10,7 +10,9 @@ var ChemLoader = React.createClass({
         tab = <ChemAdvancedEntry index={this.props.index} tabs={this.props.tabs}/>
         break;
       case 'upload':
-        tab = <ChemUpload files={this.props.files} tabs={this.props.tabs}/>
+        tab = <ChemUpload files={this.props.files}
+                          selectedFile={this.props.selectedFile}
+                          tabs={this.props.tabs}/>
         break;
       case 'help':
         tab = <ChemHelp tabs={this.props.tabs}/>

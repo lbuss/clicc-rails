@@ -1,15 +1,15 @@
 var FileIndexShow = React.createClass({
-  render: function() {
-    var fileName = this.props.fileName;
-    var divClass = 'menu-el';
 
-    if (fileName === FileStore.currentFile()){
+  render: function() {
+
+    var divClass = 'menu-el';
+    if (FileStore.isSelected(this.props.fileName)){
       divClass += 'menu-el-loaded';
     }
 
     return(
       <li onClick={this.selectFile} className={divClass}>
-        {fileName}
+        {this.props.fileName}:
         <button onClick={this.deleteFile}>{'\u00D7'}</button>
       </li>
     )

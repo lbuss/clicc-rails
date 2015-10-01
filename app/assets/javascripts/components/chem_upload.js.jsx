@@ -1,6 +1,10 @@
 var ChemUpload = React.createClass({
 
   render: function() {
+    var viewFile;
+    if(this.props.selectedFile){
+      viewFile = <FileViewer selectedFile={this.props.selectedFile}/>
+    }
     return(
     <div id='chem-upload'>
         File Select:
@@ -9,7 +13,9 @@ var ChemUpload = React.createClass({
           <button type='submit'>upload</button>
         </form>
         Load local result data. Eventual support for loading custom module settings used for ADVANCED submission.
+        <br/>
         <FileIndex files={this.props.files}/>
+        {viewFile}
     </div>
     )
   },

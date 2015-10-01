@@ -13,6 +13,13 @@ Actions = {
     });
   },
 
+  removeLocalFile: function(fileName){
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.REMOVE_LOCAL_FILE,
+      fileName: fileName
+    });
+  },
+
   makeCurrent: function(chem){
     AppDispatcher.dispatch({
       actionType: ActionTypes.MAKE_CURRENT,
@@ -35,17 +42,17 @@ Actions = {
     });
   },
 
-  selectFile: function(file){
+  selectFile: function(fileName){
     AppDispatcher.dispatch({
       actionType: ActionTypes.SELECT_FILE,
-      file: file
+      fileName: fileName
     });
   },
 
-  deleteFile: function(file){
+  deleteFile: function(fileName){
     AppDispatcher.dispatch({
       actionType: ActionTypes.DELETE_FILE,
-      file: file
+      fileName: fileName
     });
   },
 

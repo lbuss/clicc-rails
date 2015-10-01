@@ -5,6 +5,7 @@ var Main = React.createClass({
       chem: ChemStore.currentChem(),
       index: IndexStore.currentIndex(),
       files: FileStore.currentFiles(),
+      selectedFile: FileStore.selectedFile(),
       info: InfoStore.currentInfo(),
       localIndex: ChemStore.currentLocals(),
     }
@@ -27,6 +28,7 @@ var Main = React.createClass({
       case 'submit':
         tab = <ChemLoader index={this.state.index}
                           files={this.state.files}
+                          selectedFile={this.state.selectedFile}
                           tabs={this.state.tabs}/>
         break;
       case 'result':
@@ -54,6 +56,7 @@ var Main = React.createClass({
       index: IndexStore.currentIndex(),
       info: InfoStore.currentInfo(),
       files: FileStore.currentFiles(),
+      selectedFile: FileStore.selectedFile(),
       localIndex: ChemStore.currentLocals(),
     })
   },
