@@ -2,7 +2,7 @@ var FileIndexShow = React.createClass({
 
   render: function() {
 
-    var divClass = 'menu-el';
+    var divClass = 'menu-el ';
     if (FileStore.isSelected(this.props.fileName)){
       divClass += 'menu-el-loaded';
     }
