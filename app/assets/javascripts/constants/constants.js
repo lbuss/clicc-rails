@@ -7,16 +7,10 @@ ActionTypes = {
   REMOVE_LOCAL: "remove_local",
   MAKE_CURRENT: "make_current",
   NEW_FILE: "new_file",
+  SELECT_FILE: "select_file",
+  DELETE_FILE: "delete_file",
 }
 
 ChemStatus = {
   NOT_FOUND: "not_found"
-}
-
-TABS = {
-  MAIN: {
-    HOME: 'home',
-
-  },
-
 }

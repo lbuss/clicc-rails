@@ -4,6 +4,7 @@ var Main = React.createClass({
       tabs: TabStore.currentTabs(),
       chem: ChemStore.currentChem(),
       index: IndexStore.currentIndex(),
+      files: FileStore.currentFiles(),
       info: InfoStore.currentInfo(),
       localIndex: ChemStore.currentLocals(),
     }
@@ -14,6 +15,7 @@ var Main = React.createClass({
     IndexStore.addChangeListener(this.update);
     InfoStore.addChangeListener(this.update);
     TabStore.addChangeListener(this.update);
+    FileStore.addChangeListener(this.update);
   },
 
   render: function(){
@@ -23,7 +25,9 @@ var Main = React.createClass({
         tab = <Home tabs={this.state.tabs}/>
         break;
       case 'submit':
-        tab = <ChemLoader index={this.state.index} tabs={this.state.tabs}/>
+        tab = <ChemLoader index={this.state.index}
+                          files={this.state.files}
+                          tabs={this.state.tabs}/>
         break;
       case 'result':
         tab = <Result chem={this.state.chem}
@@ -49,6 +53,7 @@ var Main = React.createClass({
       chem: ChemStore.currentChem(),
       index: IndexStore.currentIndex(),
       info: InfoStore.currentInfo(),
+      files: FileStore.currentFiles(),
       localIndex: ChemStore.currentLocals(),
     })
   },

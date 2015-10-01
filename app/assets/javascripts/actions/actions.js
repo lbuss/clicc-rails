@@ -28,8 +28,23 @@ Actions = {
   },
 
   newFile: function(file){
+    console.log(file);
     AppDispatcher.dispatch({
       actionType: ActionTypes.NEW_FILE,
+      file: file
+    });
+  },
+
+  selectFile: function(file){
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.SELECT_FILE,
+      file: file
+    });
+  },
+
+  deleteFile: function(file){
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.DELETE_FILE,
       file: file
     });
   },
