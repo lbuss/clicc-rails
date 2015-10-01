@@ -21,7 +21,7 @@ var ChemUpload = React.createClass({
   },
 
   onReaderLoad:function(e){
-    var chem = JSON.parse(e.target.result);
-    Actions.newChem(chem);
-  }
+    var file = JSON.parse(e.target.result);
+    Actions.newFile(file);
+  },
 });

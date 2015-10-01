@@ -27,6 +27,13 @@ Actions = {
     });
   },
 
+  newFile: function(file){
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.NEW_FILE,
+      file: file
+    });
+  },
+
   changeTab: function(input){
     AppDispatcher.dispatch({
       actionType: ActionTypes.CHANGE_TAB,
