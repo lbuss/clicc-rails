@@ -1,15 +1,17 @@
 ApiActions = {
-  getIndex: function(){
-    $.ajax(
-      {url:'api/chemicals',
-      type: 'GET',
-      success: function(resp){
-        AppDispatcher.dispatch({
-          actionType: ActionTypes.NEW_INDEX,
-          response: resp
-        });
-      }
-    })
+  getOrFetchIndex: function(){
+    if(IndexStore.currentIndex().length <=0){
+      $.ajax(
+        {url:'api/chemicals',
+        type: 'GET',
+        success: function(resp){
+          AppDispatcher.dispatch({
+            actionType: ActionTypes.NEW_INDEX,
+            response: resp
+          });
+        }
+      })
+    }
   },
 
   findChem: function(format, chem){
@@ -21,7 +23,7 @@ ApiActions = {
       success: function(resp){
         AppDispatcher.dispatch({
           actionType: ActionTypes.NEW_CHEM,
-          response: resp
+          chem: resp[0]
         });
       }
     })

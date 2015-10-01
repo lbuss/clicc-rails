@@ -6,6 +6,7 @@ ActionTypes = {
   CHANGE_TAB: "change_tab",
   REMOVE_LOCAL: "remove_local",
   MAKE_CURRENT: "make_current",
+  NEW_FILE: "new_file",
 }
 
 ChemStatus = {

@@ -20,6 +20,13 @@ Actions = {
     });
   },
 
+  newChem: function(chem){
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.NEW_CHEM,
+      chem: chem
+    });
+  },
+
   changeTab: function(input){
     AppDispatcher.dispatch({
       actionType: ActionTypes.CHANGE_TAB,

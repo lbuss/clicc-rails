@@ -65,7 +65,7 @@
     dispatchID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case ActionTypes.NEW_CHEM:
-          ChemStore.newChem(payload.response[0]);
+          ChemStore.newChem(payload.chem);
           break;
         case ActionTypes.REMOVE_LOCAL:
           ChemStore.removeLocal(payload.chem)

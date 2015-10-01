@@ -1,6 +1,6 @@
 var ChemIndex = React.createClass({
   componentDidMount: function(){
-    ApiActions.getIndex()
+    ApiActions.getOrFetchIndex();
   },
 
   render: function() {
