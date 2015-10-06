@@ -5,17 +5,17 @@ var ModViewer = React.createClass({
     if(this.props.chem){
       switch(this.props.tabs['mod']){
         case 'mod1':
-          tab='Some special thing.';
+          tab='Display for mod 1';
           break;
         case 'mod2':
-          tab='Another special secret.';
+          tab='Display for mod 2';
           break;
         case 'mod3':
-          tab='Move Along.';
+          tab='Display for mod 3';
           break;
         default:
           tab = <div>
-            'nothing here right now.'
+            'Select module to view.'
           </div>
       }
     }
