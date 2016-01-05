@@ -73,6 +73,9 @@
         case ActionTypes.MAKE_CURRENT:
           ChemStore.makeCurrent(payload.chem);
           break;
+        case ActionTypes.JOB_RESPONSE:
+          ChemStore.makeCurrent(payload.chem);
+          break;
       }
     })
   })

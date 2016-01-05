@@ -29,14 +29,15 @@ ApiActions = {
     })
   },
 
-  submitJob: function(smiles){
+  submitJob: function(chem){
     $.ajax(
       {url:'api/chemicals/submit_job',
       type: 'POST',
-      data: {smiles: smiles},
+      data: {MD: chem.MD,
+            file: chem.file},
       success: function(resp){
         AppDispatcher.dispatch({
-          actionType: ActionTypes.NEW_CHEM,
+          actionType: ActionTypes.JOB_RESPONSE,
           response: resp
         });
         ApiActions.getIndex()

@@ -1,6 +1,7 @@
 ActionTypes = {
   NEW_INDEX: "new_index",
   NEW_CHEM: "new_chem",
+  JOB_RESPONSE: 'job_response',
   CHEM_NOT_FOUND: "chem_not_found",
   CHANGE_INFO: "change_info",
   CHANGE_TAB: "change_tab",
