@@ -5,6 +5,7 @@ var Result = React.createClass({
     var block;
 
     if(this.props.chem){
+      tab;
       switch(this.props.tabs['result']){
         case 'raw':
           tab = <ResultRaw chem={this.props.chem}/>

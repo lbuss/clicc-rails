@@ -5,7 +5,8 @@
     loader: 'basic',
     result: 'vis',
     vis: 'pie',
-    advanced: 'fat'
+    advanced: 'fat',
+    mod: ''
   };
 
   var CHANGE_EVENT = 'tab_change';

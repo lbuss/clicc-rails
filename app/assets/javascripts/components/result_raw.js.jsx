@@ -6,24 +6,42 @@ var ResultRaw = React.createClass({
     curr_chem = this.props.chem;
 
     if(this.props.chem){
-      if(curr_chem.results && (curr_chem.results === ChemStatus.NOT_FOUND)){
-        view = <SubmitJob chem={curr_chem}/>
-      }else if(curr_chem.results){
-        var resultList = curr_chem.results.map(function(result){
-          return <div>
-            property: {result.property}<br/>
-            value: {result.value}<br/>
-            created at: {result.created_at}<br/><br/>
-          </div>
-        }.bind(this))
+      var mod_array = Object.keys(this.props.chem.results).map(function(mod_name){
+        var property_array = Object.keys(this.props.chem.results[mod_name]).map(function(property_name){
+          if(!this.props.chem.results[mod_name][property_name]){
+            return <li>
+              {property_name}: null
+            </li>
+          }else if (Array.isArray(this.props.chem.results[mod_name][property_name])) {
+            var value_array = Object.keys(this.props.chem.results[mod_name][property_name]).map(function(value){
+              return <li>{value}</li>;
+            })
+          }else{
+            return <li>
+              {property_name}: {this.props.chem.results[mod_name][property_name]}
+            </li>
+          }
+          return <li><ul>{value_array}</ul></li>;
+          }.bind(this))
 
-        view = <div>
-          SMILES: {this.props.chem.smiles}<br/>
-          NAME: {this.props.chem.name}<br/>
-          CASRN: {this.props.chem.casrn}<br/>
-          <div>{resultList}</div>
-        </div>
-      }
+
+        return <li>
+          {mod_name}:
+          <ul>
+            {property_array}
+          </ul>
+          <br/>
+        </li>
+      }.bind(this))
+
+
+
+      view = <div>
+        {this.props.chem.smiles}<br/><br/>
+        <ul>
+          {mod_array}
+        </ul>
+      </div>
     }else{
       var view = 'Please enter a Chemical';
     }

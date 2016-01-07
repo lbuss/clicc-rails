@@ -38,9 +38,9 @@ ApiActions = {
       success: function(resp){
         AppDispatcher.dispatch({
           actionType: ActionTypes.JOB_RESPONSE,
-          response: resp
+          results: resp['results']
         });
-        ApiActions.getIndex()
+        // ApiActions.getIndex()
       }
     })
   },

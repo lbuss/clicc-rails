@@ -35,8 +35,12 @@
       ChemStore.emit(CHANGE_EVENT);
     },
 
-    newChem: function(chemInfo){
-      _chems[chemInfo['smiles']] = chemInfo;
+    newChem: function(results){
+      chem = {
+        'smiles': results['qsar']['smiles'],
+        'results': results
+      }
+      _chems[chem['smiles']] = chem;
       ChemStore.emit(CHANGE_EVENT);
     },
 
@@ -74,7 +78,7 @@
           ChemStore.makeCurrent(payload.chem);
           break;
         case ActionTypes.JOB_RESPONSE:
-          ChemStore.makeCurrent(payload.chem);
+          ChemStore.newChem(payload.results);
           break;
       }
     })
