@@ -22,7 +22,7 @@ var ChemAdvEntryNav = React.createClass({
     }.bind(this));
 
     return (
-      <ul className='menu-list result-block' id="advanced-nav">
+      <ul className='menu-list' id="advanced-nav">
             {view}
       </ul>
     );

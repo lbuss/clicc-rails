@@ -4,23 +4,51 @@ var ChemBasicEntry = React.createClass({
 
   getInitialState: function(){
     return{
+      request_status: null,
       MD: null,
     }
   },
 
+  componentDidMount: function(){
+    RequestStore.addChangeListener(this.update);
+  },
+
+  componentWillUnmount: function(){
+    RequestStore.removeChangeListener(this.update);
+  },
+
+  update: function(){
+    this.setState({
+      request_status: false,
+      MD: null,
+    });
+  },
+
   render: function() {
+    var result;
+    if(this.state.request_result){
+      result = <div>
+        <h3>{this.state.request_result['status']}</h3>
+        <p>
+          {this.state.request_result['message']}
+        </p>
+      </div>
+    }
+
     return(
       <div id='chem-basic'>
         <form className='result-block' id="chem-form-wrapper" onSubmit={this.fileParse}>
-          Submit Chemical. Upload EPI Suite 4.1 results text file, and input molecular density. This can be generated using T.E.S.T.
-          <br/><br/>
+          <h3>Submit Chemical</h3>
+          <p>
+            Upload EPI Suite 4.1 results text file, and input molecular density. This can be generated using T.E.S.T.
+          </p>
           <input type="file"/>
           <br/><br/>
-          <input type="text" valueLink={this.linkState('MD')}/>
+          MD: <input type="text" valueLink={this.linkState('MD')}/>
           <br/><br/>
-          <input type="submit" value="Submit"/>
+          <input type="submit" disabled={this.state.request_status} value={!this.state.request_status?"Submit":"Calculating"}/>
         </form>
-
+        {result}
       </div>
     )
   },
@@ -43,10 +71,13 @@ var ChemBasicEntry = React.createClass({
 
     function submitChem(e){
       e.preventDefault();
-
       chem = {'MD': that.state.MD,
               'file': e.target.result}
       ApiActions.submitJob(chem);
+      that.setState({
+        request_status: true,
+        MD: that.state.MD,
+      })
     };
 
     function onReaderLoad(e){

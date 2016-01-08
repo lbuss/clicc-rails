@@ -12,8 +12,9 @@ var ChemUpload = React.createClass({
           <input type="file"/>
           <button type='submit'>upload</button>
         </form>
-        Load local result data. Eventual support for loading custom module settings used for ADVANCED submission.
-        <br/>
+        <p>
+          Load local file. Currently for testing purposes only.
+        </p>
         <FileIndex files={this.props.files}/>
         {viewFile}
     </div>

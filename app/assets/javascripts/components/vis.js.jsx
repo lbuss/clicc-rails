@@ -19,17 +19,13 @@ var Vis = React.createClass({
       //     break;
       // }
       var modules_array = Object.keys(this.props.chem.results)
-      var value_count = 0;
-      modules_array.forEach( function(module_name){
-        value_count += this.props.chem.results[module_name].length
-      }.bind(this))
+      var value_count = recursive_length_count(this.props.chem.results)
     }
     return (
       <div>
-        Results for {this.props.chem.smiles}:
+        <h3>Results for {this.props.chem.smiles}:</h3>
 
-        There are results for {modules_array.length} modules containing
-        {value_count} values
+        <p>There are results for {modules_array.length} modules containing {value_count} values</p>
       </div>
     );
   },

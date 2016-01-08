@@ -26,11 +26,18 @@ class Api::ChemicalsController < ApplicationController
     # work_server = 'http://localhost:5000/submit'
     work_server = 'http://lbuss.pythonanywhere.com/run_job';
     @response = Net::HTTP.post_form(URI.parse(work_server), params)
-    # @results = ActiveSupport::JSON.decode(response.body)
-    # @chemical = [Chemical.find_or_create_by('smiles': @results['SMILES'])]
-    # @results['results'].each do |res|
-    #   Result.create_with_property(@chemical[0], res)
-    # end
+    valid = (@response.code.to_i == 200 ? true : false)
+    # @relay={
+    #   valid: (@response.code.to_i == 200 ? true : false),
+    #   chem: @response.body
+    #   # valid: true,
+    #   # chem: {results: {qsar: {smiles: 'QWERTY', bums: [1,2,3,4,5], ticks: 5, mills: nil}}}
+    # }
+    # # @results = ActiveSupport::JSON.decode(response.body)
+    # # @chemical = [Chemical.find_or_create_by('smiles': @results['SMILES'])]
+    # # @results['results'].each do |res|
+    # #   Result.create_with_property(@chemical[0], res)
+    # # end
 
     render json: @response.body
   end

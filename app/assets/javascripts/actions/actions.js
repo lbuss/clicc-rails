@@ -35,7 +35,6 @@ Actions = {
   },
 
   newFile: function(file){
-    console.log(file);
     AppDispatcher.dispatch({
       actionType: ActionTypes.NEW_FILE,
       file: file

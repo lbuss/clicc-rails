@@ -3,10 +3,13 @@ var Home = React.createClass({
   render: function() {
     return(
       <div>
-        Home page with information. Modules return a single random number. Only accepts unique smiles as input.
-        Load chemicals locally with submit tab and view results in result tab.
-        <br/>
-        Add some cool interactive infographics on clicc or about the modules.
+        <h3>Current Accessible Modules:</h3>
+        <ul>
+          <li>QSAR</li>
+          <li>Exposure</li>
+          <li>Fate and Transport</li>
+          <li>LCIA: test set values only</li>
+        </ul>
       </div>
     )
   },
