@@ -15,15 +15,15 @@
       return _chems;
     },
 
-    isLocal: function(smiles){
-      if(_chems[smiles]){
+    isLocal: function(name){
+      if(_chems[name]){
         return true;
       }
       return false;
     },
 
-    isCurrent: function(smiles){
-      if (_chem && (_chem['smiles'] === smiles)){
+    isCurrent: function(name){
+      if (_chem && (_chem['name'] === name)){
         return true;
       }else{
         return false;
@@ -37,20 +37,21 @@
 
     newChem: function(results){
       chem = {
+        'name': results['qsar']['smiles'] + ': ' + new Date(),
         'smiles': results['qsar']['smiles'],
         'results': results
       }
 
-      _chems[chem['smiles']] = chem;
+      _chems[chem['name']] = chem;
       ChemStore.emit(CHANGE_EVENT);
     },
 
     removeLocal: function(chem){
-      if(ChemStore.isCurrent(chem['smiles'])){
+      if(ChemStore.isCurrent(chem['name'])){
         _chem = null;
         InfoStore.clearInfo();
       }
-      delete _chems[chem['smiles']];
+      delete _chems[chem['name']];
       ChemStore.emit(CHANGE_EVENT);
     },
 

@@ -7,7 +7,7 @@ var ChemIndexShow = React.createClass({
 
   render: function() {
     var chem = this.props.chem
-    var local = ChemStore.isLocal(chem['smiles']);
+    var local = ChemStore.isLocal(chem['name']);
     var buttonText,
         buttonClass,
         divClass;
@@ -31,13 +31,13 @@ var ChemIndexShow = React.createClass({
 
   chemAction: function(e){
     e.preventDefault();
-    if(ChemStore.isLocal(this.props.chem['smiles'])){
+    if(ChemStore.isLocal(this.props.chem['name'])){
       Actions.removeLocal(this.props.chem);
       this.setState({
         retrieving: false
       });
     }else{
-      ApiActions.findChem('smiles', this.props.chem.smiles);
+      ApiActions.findChem('name', this.props.chem.smiles);
       this.setState({
         retrieving: true
       });
