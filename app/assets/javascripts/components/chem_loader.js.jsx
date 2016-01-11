@@ -7,8 +7,8 @@ var ChemLoader = React.createClass({
         tab = <ChemBasicEntry index={this.props.index} tabs={this.props.tabs}/>
         break;
       case 'advanced':
-        // tab = <ChemAdvancedEntry index={this.props.index} tabs={this.props.tabs}/>
-        tab = <div><h3>Advanced Entry Under Construction</h3></div>
+        tab = <ChemAdvancedEntry index={this.props.index} tabs={this.props.tabs}/>
+        // tab = <div><h3>Advanced Entry Under Construction</h3></div>
         break;
       case 'upload':
         tab = <ChemUpload files={this.props.files}

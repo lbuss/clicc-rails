@@ -4,83 +4,59 @@ var ChemAdvancedEntry = React.createClass({
 
   getInitialState: function(){
     return{
-      chem: '',
-      format: 'smiles',
+      expand: {
+        'qsar': false,
+        'fat': false,
+        'exposure':false
+      }
     }
   },
 
   render: function() {
-    var tab;
-    switch(this.props.tabs['advanced']){
-      case 'fat':
-        tab = <form>
-          <h3>Placeholder form for Fate/Transport</h3>
-          <p>property 1</p>
-          <input type='text'/>
-          <p>property 2</p>
-          <input type='text'/>
-          <p>property 3</p>
-          <select valueLink={this.linkState('format')}>
-            <option value="name">NAME</option>
-            <option value="smiles">SMILES</option>
-            <option value="casrn">CASRN</option>
-          </select>
-        </form>
-        break;
-      case 'tox':
-        tab = tab = <form>
-          <h3>Placeholder form for Toxicity</h3>
-          <p>property 1</p>
-          <input type='text'/>
-          <p>property 2</p>
-          <input type='text'/>
-          <p>property 3</p>
-          <select valueLink={this.linkState('format')}>
-            <option value="name">NAME</option>
-            <option value="smiles">SMILES</option>
-            <option value="casrn">CASRN</option>
-          </select>
-        </form>
-        break;
-      case 'prd':
-        tab = tab = <form>
-          <h3>Placeholder form for Production</h3>
-          <p>property 1</p>
-          <input type='text'/>
-          <p>property 2</p>
-          <input type='text'/>
-          <p>property 3</p>
-          <select valueLink={this.linkState('format')}>
-            <option value="name">NAME</option>
-            <option value="smiles">SMILES</option>
-            <option value="casrn">CASRN</option>
-          </select>
-        </form>
-        break;
-      case 'rls':
-        tab = tab = <form>
-          <h3>Placeholder form for Release</h3>
-          <p>property 1</p>
-          <input type='text'/>
-          <p>property 2</p>
-          <input type='text'/>
-          <p>property 3</p>
-          <select valueLink={this.linkState('format')}>
-            <option value="name">NAME</option>
-            <option value="smiles">SMILES</option>
-            <option value="casrn">CASRN</option>
-          </select>
-        </form>
-        break;
-    }
+    // valueLink={this.linkState('format')
+    var qsar_display = <div onClick={this.expandQ}>
+      <h4 id='qsar'>QSAR Settings {this.state.expand.qsar?'-':'+'}</h4>
+      {this.state.expand.qsar?<p>QSAR setting go here.</p>:''}
+    </div>
+    var fat_display = <div onClick={this.expandF}>
+      <h4 id='fat'>Fate and Transport Settings {this.state.expand.fat?'-':'+'}</h4>
+      {this.state.expand.fat?<div>Environment sheet upload goes here</div>:''}
+    </div>
+    var exposure_display = <div onClick={this.expandE}>
+      <h4 id='exposure'>Exposure Settings {this.state.expand.exposure?'-':'+'}</h4>
+      {this.state.expand.exposure?<div>Time to equilibrium etc.</div>:''}
+    </div>
+
     return(
     <div id='chem-advanced'>
-      <ChemAdvEntryNav tabs={this.props.tabs}/>
       <div className='result-block'>
-        {tab}
+        {qsar_display}
+        {fat_display}
+        {exposure_display}
       </div>
     </div>
     )
+  },
+
+  expand: function(value) {
+    var new_state = this.state;
+    new_state.expand[value] = !this.state.expand[value];
+    this.setState(new_state);
+  },
+
+  expandQ: function(e){
+    e.preventDefault();
+    this.expand('qsar');
+  },
+
+  expandF: function(e){
+    e.preventDefault();
+    this.expand('fat');
+  },
+
+  expandE: function(e){
+    e.preventDefault();
+    this.expand('exposure');
   },
 
   submitChem: function(e){
