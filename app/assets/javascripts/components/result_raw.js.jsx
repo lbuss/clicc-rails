@@ -17,23 +17,23 @@ var ResultRaw = React.createClass({
       </div>
     )
 
-    function recursive_list(possibleHash){
-      if(Array.isArray(possibleHash)){
-        return 'large array placeholder'
-      }else if (typeof possibleHash !== 'string' &&
-                typeof possibleHash !== 'number' &&
-                typeof possibleHash !== 'boolean' &&
-                possibleHash !== null) {
-        var children = Object.keys(possibleHash).map(function(key){
-          recursive_object = recursive_list(possibleHash[key])
-          return (<li>{key}: {recursive_object}</li>)
-        })
-        return <ul>{children}</ul>
-      }else{
-        return possibleHash
-      }
-
-    }
+    // function recursive_list(possibleHash){
+    //   if(Array.isArray(possibleHash)){
+    //     return 'large array placeholder'
+    //   }else if (typeof possibleHash !== 'string' &&
+    //             typeof possibleHash !== 'number' &&
+    //             typeof possibleHash !== 'boolean' &&
+    //             possibleHash !== null) {
+    //     var children = Object.keys(possibleHash).map(function(key){
+    //       recursive_object = recursive_list(possibleHash[key])
+    //       return (<li>{key}: {recursive_object}</li>)
+    //     })
+    //     return <ul>{children}</ul>
+    //   }else{
+    //     return possibleHash
+    //   }
+    // 
+    // }
   }
 
 });

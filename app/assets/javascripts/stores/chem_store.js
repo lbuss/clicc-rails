@@ -40,6 +40,7 @@
         'smiles': results['qsar']['smiles'],
         'results': results
       }
+
       _chems[chem['smiles']] = chem;
       ChemStore.emit(CHANGE_EVENT);
     },

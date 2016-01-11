@@ -4,7 +4,7 @@ var ResultNav = React.createClass({
     var tabNames = {
       vis: 'Overview',
       // mod: 'By Module',
-      raw: 'Raw Data',
+      raw: 'Data',
       dld: 'Download',
     }
     var level = 'result';

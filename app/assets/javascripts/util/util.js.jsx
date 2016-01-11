@@ -1,6 +1,15 @@
 function recursive_list(possibleHash){
   if(Array.isArray(possibleHash)){
-    return 'large array placeholder'
+    var array = []
+    for(i=0; i<4; i++){
+      if(i === 0){
+        array.push(<li>[ {possibleHash[i]},</li>)
+      }else{
+        array.push(<li>{possibleHash[i]},</li>)
+      }
+    }
+    array.push(<li>..., ]</li>)
+    return <div>array({possibleHash.length}): <ul style={{listStyle: 'none'}}>{array}</ul></div>
   }else if (typeof possibleHash !== 'string' &&
             typeof possibleHash !== 'number' &&
             typeof possibleHash !== 'boolean' &&
