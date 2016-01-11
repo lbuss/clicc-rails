@@ -27,7 +27,7 @@ var ResultDownload = React.createClass({
         <input type='text' valueLink={this.linkState('fileName')}/>
         .txt
         <br/>
-        <a href={url} download={this.state.fileName}>Download</a>
+        <a href={url} download={this.state.fileName+'.txt'}>Download</a>
       </div>
     )
   },

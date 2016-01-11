@@ -27,6 +27,14 @@ class Api::ChemicalsController < ApplicationController
     work_server = 'http://lbuss.pythonanywhere.com/run_job';
     @response = Net::HTTP.post_form(URI.parse(work_server), params)
     valid = (@response.code.to_i == 200 ? true : false)
+
+    if @response.code.to_i == 404
+      render :status => 404
+    elsif @response.code.to_i == 403
+      render :status => 403
+    else
+      render json: @response.body
+    end
     # @relay={
     #   valid: (@response.code.to_i == 200 ? true : false),
     #   chem: @response.body
@@ -39,7 +47,7 @@ class Api::ChemicalsController < ApplicationController
     # #   Result.create_with_property(@chemical[0], res)
     # # end
 
-    render json: @response.body
+
   end
 
   def show

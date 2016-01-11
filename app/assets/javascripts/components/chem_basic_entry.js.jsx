@@ -4,7 +4,9 @@ var ChemBasicEntry = React.createClass({
 
   getInitialState: function(){
     return{
+      request_text: '',
       request_status: null,
+      fileName: null,
       MD: null,
     }
   },
@@ -19,7 +21,9 @@ var ChemBasicEntry = React.createClass({
 
   update: function(){
     this.setState({
+      request_text: RequestStore.currentRequest(),
       request_status: false,
+      fileName: null,
       MD: null,
     });
   },
@@ -35,6 +39,8 @@ var ChemBasicEntry = React.createClass({
       </div>
     }
 
+    var canSubmit = !this.state.request_status && this.state.MD && this.state.fileName;
+
     return(
       <div id='chem-basic'>
         <form className='result-block' id="chem-form-wrapper" onSubmit={this.fileParse}>
@@ -42,13 +48,13 @@ var ChemBasicEntry = React.createClass({
           <p>
             Upload EPI Suite 4.1 results text file, and input molecular density. This can be generated using T.E.S.T.
           </p>
-          <input type="file"/>
+          <input type="file" valueLink={this.linkState('fileName')}/>
           <br/><br/>
           MD: <input type="text" valueLink={this.linkState('MD')}/>
           <br/><br/>
-          <input type="submit" disabled={this.state.request_status} value={!this.state.request_status?"Submit":"Calculating"}/>
+          <input type="submit" disabled={!canSubmit} value={!this.state.request_status?"Submit":"Calculating"}/>
+          <p>{this.state.request_text}</p>
         </form>
-        {result}
       </div>
     )
   },

@@ -10,7 +10,7 @@
       return _request;
     },
 
-    handleRequest: function(response){
+    handleError: function(error){
       // if(response.valid){
       //   _request = {
       //     'valid': true,
@@ -24,10 +24,20 @@
       //     'message': 'Results were not successfully return. Please check the chemical density is correct for the EPI suite results you have uploaded.'
       //   }
       // }
+      _request = 'Error';
+      RequestStore.emit(CHANGE_EVENT);
+    },
+
+    handleRequest: function(response){
+      _request = 'Success';
       RequestStore.emit(CHANGE_EVENT);
       if(response.results){
         ChemStore.newChem(response.results)
       }
+    },
+
+    resetRequest: function(){
+      _request = '';
     },
 
     addChangeListener: function(callback){
@@ -42,6 +52,9 @@
       switch(payload.actionType){
         case ActionTypes.JOB_RESPONSE:
           RequestStore.handleRequest(payload.response);
+          break;
+        case ActionTypes.JOB_RESPONSE_ERROR:
+          RequestStore.handleError(payload.response);
           break;
       }
     })

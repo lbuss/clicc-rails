@@ -40,8 +40,14 @@ ApiActions = {
           actionType: ActionTypes.JOB_RESPONSE,
           response: resp
         });
-        // ApiActions.getIndex()
+      },
+      error: function(resp){
+        AppDispatcher.dispatch({
+          actionType: ActionTypes.JOB_RESPONSE_ERROR,
+          response: resp
+        });
       }
+        // ApiActions.getIndex()
     })
   },
   // saveTrack: function(track){
