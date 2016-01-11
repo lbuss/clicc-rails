@@ -3,7 +3,7 @@ var ResultNav = React.createClass({
   render: function(){
     var tabNames = {
       vis: 'Overview',
-      mod: 'By Module',
+      // mod: 'By Module',
       raw: 'Raw Data',
       dld: 'Download',
     }

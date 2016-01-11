@@ -15,10 +15,10 @@ var Result = React.createClass({
             info={this.props.info}
             tabs={this.props.tabs}/>;
           break;
-        case 'mod':
-          tab = <ModViewer chem={this.props.chem}
-            tabs={this.props.tabs}/>
-          break;
+        // case 'mod':
+        //   tab = <ModViewer chem={this.props.chem}
+        //     tabs={this.props.tabs}/>
+        //   break;
         case 'dld':
           tab = <ResultDownload chem={this.props.chem}
             tabs={this.props.tabs}/>

@@ -81,7 +81,9 @@ var ChemBasicEntry = React.createClass({
               'file': e.target.result}
       ApiActions.submitJob(chem);
       that.setState({
+        request_text: '',
         request_status: true,
+        fileName: that.state.fileName,
         MD: that.state.MD,
       })
     };
